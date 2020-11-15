@@ -10,7 +10,7 @@ GraphQL / Event Modeling workshop project.
 npm install
 ```
 * Install Docker 2.5 or greater: https://docker.com/products/docker-desktop
-* Installl Event Store 5.0.8 (specifically) via docker command:
+* Install Event Store 5.0.8 (specifically) via docker command:
 
 ```sh
 docker run --name eventstore-workshop -it -p 2113:2113 -p 1113:1113 eventstore/eventstore:5.0.8-xenial -e EVENT-STORE_DEV=true -e EVENTSTORE_RUN_PROJECTIONS=All -e EVENTSTORE_START_STANDARD_PROJECTIONS=true
@@ -67,3 +67,34 @@ You should see your name in this list. Congratulations, you have succeeded at se
 ## Table Tennis Event Model
 
 ![Event_Model](Event_Model.png)
+
+## Running a Table Tennis Tournament
+
+This project contains an app that generates a Tournament complete with players, matches and games. You can run a tournament from the command line:
+
+```sh
+npm run play
+```
+
+While running, the console will display the results of games and matches. Also, the tournament GraphQL projection in the Playground will show the results of matches with the following query:
+
+```graphql
+{
+  tournament(key: "Your_tournament_Key") {
+    name
+    matches {
+      player1 {
+        name
+      }
+      player2 {
+        name
+      }
+      winner {
+        name
+      }
+    }
+  }
+}
+```
+
+ 

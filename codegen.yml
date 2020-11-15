@@ -1,0 +1,9 @@
+schema: src/graphql/table-tennis.graphql
+generates:
+  src/graphql/gen/types.d.ts:
+    plugins:
+      - typescript
+      - typescript-resolvers
+    config:
+      noSchemaStitching: true
+      useIndexSignature: true

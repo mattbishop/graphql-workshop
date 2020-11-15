@@ -1,0 +1,57 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type Mutation {
+  registerPlayer(
+    name: String!,
+    country: String!
+  ): String!
+
+  createTournament(
+    name: String!,
+    players: [ID!]!
+  ): String!
+}
+
+type Query {
+  players: [Player]
+  tournaments: [Tournament]
+  tournament(
+    key: ID!
+  ): Tournament
+}
+
+type Player {
+  key: ID!
+  name: String!
+  country: String!
+}
+
+type Tournament {
+  key: ID!
+  name: String!
+  matches: [Match!],
+  winner: Player
+}
+
+type Match {
+  key: ID!
+  player1: Player!
+  player2: Player!
+  games: [Score!]
+  score: Score
+  winner: Player
+}
+
+type Game {
+  key: ID!
+  score: Score!
+  winner: Player
+}
+
+type Score {
+  player1: Int!
+  player2: Int!
+}
