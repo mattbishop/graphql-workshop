@@ -7,7 +7,6 @@ export function initMatchResolver(sendƒ: SendToESƒ): MatchResolvers {
   return {
     player1: (p) => getPlayer1(sendƒ, p),
     player2: (p) => getPlayer2(sendƒ, p),
-    winner: (p) => getWinner(sendƒ, p)
   }
 }
 
@@ -26,13 +25,5 @@ async function getPlayer2(sendƒ:  SendToESƒ,
   const {player2} = await detailsProjection(sendƒ, "match", key)
   return {
     key: player2
-  } as Player
-}
-
-async function getWinner(sendƒ: SendToESƒ, parent: Match): Promise<Player> {
-  const {key} = parent
-  const {winner} = await detailsProjection(sendƒ, "match", key)
-  return {
-    key: winner
   } as Player
 }

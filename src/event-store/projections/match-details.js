@@ -9,9 +9,5 @@ fromCategory("match")
         player1Key: state.player1,
         player2Key: state.player2
       } = event.data)
-    },
-
-    "match-completed": (state, event) => {
-      ({winnerKey: state.winner} = event.data)
     }
   })
