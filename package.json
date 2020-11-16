@@ -23,8 +23,8 @@
     "graphql": "15.4.0"
   },
   "scripts": {
-    "play": "ts-node src/index.ts",
-    "launch-apollo": "ts-node src/graphql/launch.ts",
+    "tournament": "ts-node src/index.ts",
+    "apollo": "ts-node src/graphql/launch.ts",
     "generate-types": "graphql-codegen"
   }
 }

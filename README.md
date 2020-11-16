@@ -38,7 +38,7 @@ Enable Projections in Event Store Admin:
 Launch Apollo:
 
 ```sh
-npm run launch-apollo
+npm run apollo
 ```
 
 * Go to http://localhost:4000 which is the Playground app.
@@ -73,7 +73,7 @@ You should see your name in this list. Congratulations, you have succeeded at se
 This project contains an app that generates a Tournament complete with players, matches and games. You can run a tournament from the command line:
 
 ```sh
-npm run play
+npm run tournament
 ```
 
 While running, the console will display the results of games and matches. Also, the tournament GraphQL projection in the Playground will show the results of matches with the following query:

@@ -1,5 +1,5 @@
 import {AxiosRequestConfig, AxiosResponse} from "axios"
-import {EventSink, SinkProvider} from "../event-sink"
+import {EventSink} from "../event-sink"
 import {BaseEntity} from "../types"
 import {appendEvent} from "./append-event"
 import {createESConnection} from "./connect-es"
@@ -7,24 +7,9 @@ import {ESClient} from "./es-client"
 import {readEventStream} from "./stream-events"
 
 
-export function sinkProvider(measure: any): SinkProvider {
-  return (shard) => initSink(measure, shard)
-}
-
-async function initSink(measure: any, shard: string): Promise<EventSink> {
-  const ges = getESClient()
-
-  const replayTag = `replayEvents(${shard})`
-  const appendTag = `appendEvent(${shard})`
-
+export async function initSink(): Promise<EventSink> {
   return async (evt) => {
-    measure.start(replayTag)
-    await ges.replayEvents(evt.entity)
-    measure.end(replayTag)
-
-    measure.start(appendTag)
-    await ges.appendEvent(evt)
-    measure.end(appendTag)
+    await getESClient().appendEvent(evt)
   }
 }
 
