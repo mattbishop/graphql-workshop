@@ -63,7 +63,6 @@ export type Match = {
   player2: Player;
   games?: Maybe<Array<Score>>;
   score?: Maybe<Score>;
-  winner?: Maybe<Player>;
 };
 
 export type Game = {
@@ -205,7 +204,6 @@ export type MatchResolvers<ContextType = any, ParentType extends ResolversParent
   player2?: Resolver<ResolversTypes['Player'], ParentType, ContextType>;
   games?: Resolver<Maybe<Array<ResolversTypes['Score']>>, ParentType, ContextType>;
   score?: Resolver<Maybe<ResolversTypes['Score']>, ParentType, ContextType>;
-  winner?: Resolver<Maybe<ResolversTypes['Player']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
