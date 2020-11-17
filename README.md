@@ -21,7 +21,7 @@ docker run --name eventstore-workshop -it -p 2113:2113 -p 1113:1113 eventstore/e
 Add projections to EventStore:
 
 ```sh
-node src/get-event-store/projections/install.js
+node src/event-store/projections/install.js
 ```
 
 Enable Projections in Event Store Admin:
