@@ -2,7 +2,7 @@ const fs = require("fs")
 const http = require("http")
 const path = require("path")
 
-const projectionsDir = "src/get-event-store/projections/"
+const projectionsDir = "src/event-store/projections/"
 
 function processFile(file) {
   const name = file.substr(0, file.indexOf("."))
