@@ -42,7 +42,6 @@ type Match {
   player2: Player!
   games: [Score!]
   score: Score
-  winner: Player
 }
 
 type Game {
